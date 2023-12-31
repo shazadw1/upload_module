@@ -1,0 +1,43 @@
+<odoo>
+    <data>
+        <record id="upload_module_form" model="ir.ui.view">
+            <field name="name">Upload Module Form</field>
+            <field name="model">upload.module</field>
+            <field name="arch" type="xml">
+                <form string="Upload Module">
+                    <sheet>
+                        <group>
+                            <field name="name"/>
+                            <field name="addons_paths"/>                            
+                            <field name="data_file" filename="datas_fname"/>
+                            <field name="datas_fname" invisible="1"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="upload_module_tree" model="ir.ui.view">
+            <field name="name">Upload Module Tree</field>
+            <field name="model">upload.module</field>
+            <field name="arch" type="xml">
+                <tree string="">
+                    <field name="name"/>
+                    <field name="addons_paths"/>
+                      <field name="datas_fname" />
+                </tree>
+            </field>
+        </record>
+
+        <record id="upload_module_action" model="ir.actions.act_window">
+            <field name="name">Upload Module</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">upload.module</field>
+        </record>
+
+        <menuitem id="upload_module_categ" name="Upload Module" parent="base.menu_administration" sequence="2"/>
+        <menuitem id="dvit_upload_module_action_menu" parent="upload_module_categ" name="Upload Module" sequence="10"
+                  action="upload_module_action"/>
+
+    </data>
+</odoo>
